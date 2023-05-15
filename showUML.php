@@ -11,6 +11,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="https://unpkg.com/gojs/release/go.js"></script>
+        <link rel="stylesheet" href="css/umlColor.css">
 	</head>
 	<body>
     <?php include 'top_navbar.php';

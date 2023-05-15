@@ -1,0 +1,12 @@
+.public-method,
+.public-attribute {
+	color: rgb(21 128 61);
+}
+.protected-method,
+.protected-attribute {
+	color: rgb(29 78 216);
+}
+.private-method,
+.private-attribute {
+	color: rgb(185 28 28);
+}
