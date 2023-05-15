@@ -40,9 +40,9 @@
 			<div class="row mt-3">
 				<h2>UML</h2>
 			</div>
-			<div class="row mb-3 border border-5 border-primary rounded-4 min-vh-70">
+			<div class="row mb-3 border border-5 border-primary rounded-4 min-vh-100">
 				<div id="uml"></div>
-                <div id="myDiagramDiv" style="height:70vh; border:1px solid black"></div>
+                <!--<div id="myDiagramDiv" style="height:70vh; border:1px solid black"></div>-->
 			</div>
             <?php
             if (isset($_SESSION["id"])){
