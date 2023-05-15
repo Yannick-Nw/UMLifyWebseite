@@ -57,10 +57,10 @@ function drawUML() {
 			}
 			html += '</div></div>';
 			$('#uml').html(html);
+			$('.card').draggable();
 		}
 	
 	});
-	$(".card").draggable();
     deleteFiles();
 };
 
