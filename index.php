@@ -29,7 +29,7 @@
       <label class="custom-file-label" for="file">Choose file</label>
     </div>
   </div>
-  <button type="submit" id="uploadFilesButton" class="btn btn-primary btn-block" disabled>Hochladen</button>
+  <button type="submit" id="uploadFilesButton" class="btn btn-secondary btn-block btn-black" disabled>Hochladen</button>
 </form>
       </div>
     </div>
