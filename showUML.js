@@ -14,7 +14,7 @@ function drawUML() {
 			for (var className in classes) {
 				var classData = classes[className];
 				html += '<div class="col-sm">';
-				html += '<div class="card">';
+				html += '<div id="'+ className +'"class="card">';
 				html += '<div class="card-header fw-bold">' + className + "</div>";
 				if (classData.attributes.length > 0) {
 					html += '<div class="card-header">Attributes</div>';
@@ -57,6 +57,7 @@ function drawUML() {
 				html += "</div>";
 			}
 			html += "</div></div>";
+			console.log(classes);
 			$("#uml").html(html);
 			$(".card").draggable();
 		},
@@ -84,4 +85,15 @@ function downloadUML() {
 	});
 }
 
-function lines() {}
+function lines() {
+	var startCard = $("#card1");
+	var endCard = $("#card2");
+
+	var line = new LeaderLine(
+		startCard.get(0),
+		endCard.get(0),
+		{
+			path: "grid",
+		}
+	);
+}
