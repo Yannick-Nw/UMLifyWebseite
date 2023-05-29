@@ -1,1 +1,49 @@
-{"classes": {"Enemy": {"parent": "", "attributes": ["-int : x", "-int : y", "-char : next"], "methods": []}, "Field": {"parent": "", "attributes": ["-int : relicts", "-int : width", "-int : height"], "methods": []}, "GameField": {"parent": "", "attributes": [], "methods": []}, "Gameplay": {"parent": "", "attributes": [], "methods": []}, "History": {"parent": "", "attributes": ["-int : rounds", "-string : gameHistory"], "methods": []}, "Player": {"parent": "A", "attributes": ["-int : relicts", "-int : lives", "-Cords : cords"], "methods": []}}}
+{
+    "classes": {
+        "Enemy": {
+            "parent": "",
+            "attributes": [
+                "-int : x",
+                "-int : y",
+                "-char : next"
+            ],
+            "methods": []
+        },
+        "Field": {
+            "parent": "",
+            "attributes": [
+                "-int : relicts",
+                "-int : width",
+                "-int : height"
+            ],
+            "methods": []
+        },
+        "GameField": {
+            "parent": "Gameplay",
+            "attributes": [],
+            "methods": []
+        },
+        "Gameplay": {
+            "parent": "",
+            "attributes": [],
+            "methods": []
+        },
+        "History": {
+            "parent": "",
+            "attributes": [
+                "-int : rounds",
+                "-string : gameHistory"
+            ],
+            "methods": []
+        },
+        "Player": {
+            "parent": "A",
+            "attributes": [
+                "-int : relicts",
+                "-int : lives",
+                "-Cords : cords"
+            ],
+            "methods": []
+        }
+    }
+}

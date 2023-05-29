@@ -13,7 +13,7 @@ function drawUML() {
 			var html = '<div class="container"><div class="row">';
 			for (var className in classes) {
 				var classData = classes[className];
-				html += '<div class="col-sm">';
+				html += '<div class="col-2 m-4">';
 				html += '<div id="' + className + '"class="card">';
 				html += '<div class="card-header fw-bold">' + className + "</div>";
 				if (classData.attributes.length > 0) {
@@ -62,6 +62,7 @@ function drawUML() {
 			$(".card").draggable({
 				containment: "#myDiv",
 			});
+			lines();
 		},
 	});
 	deleteFiles();
@@ -88,10 +89,20 @@ function downloadUML() {
 }
 
 function lines() {
+	/*
 	var startCard = $("#card1");
 	var endCard = $("#card2");
 
-	var line = new LeaderLine(startCard.get(0), endCard.get(0), {
+	var line = new LeaderLine(startCard, endCard, {
 		path: "grid",
+	});
+	*/
+	$(function () {
+		var line = new LeaderLine(document.getElementById("Enemy"), document.getElementById("Field"), { path: "grid", color: "black" });
+		$("#Enemy, #Field").draggable({
+			drag: function () {
+				line.position();
+			},
+		});
 	});
 }
