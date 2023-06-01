@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Registrierung</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="animation.js"></script>
 </head>
 <body>
 <?php
