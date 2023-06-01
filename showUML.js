@@ -62,7 +62,7 @@ function drawUML() {
 			$(".card").draggable({
 				containment: "#myDiv",
 			});
-			lines();
+			lines(classes);
 		},
 	});
 	deleteFiles();
@@ -88,7 +88,7 @@ function downloadUML() {
 	});
 }
 
-function lines() {
+function lines(classes) {
 	/*
 	var startCard = $("#card1");
 	var endCard = $("#card2");
@@ -98,11 +98,25 @@ function lines() {
 	});
 	*/
 	$(function () {
-		var line = new LeaderLine(document.getElementById("Enemy"), document.getElementById("Field"), { path: "grid", color: "black" });
-		$("#Enemy, #Field").draggable({
-			drag: function () {
-				line.position();
-			},
-		});
+		for (var className in classes) {
+			if (classes[className].parent.length > 0) {
+				// console.log(classes[className].parent);
+				let line = new LeaderLine(document.getElementById(className), document.getElementById(classes[className].parent), { path: "grid", color: "black" });
+				let start = "#" + className;
+				let end = "#" + classes[className].parent;
+				// console.log(start, end);
+				$(start + ", " + end).draggable({
+					drag: function () {
+						line.position();
+					},
+				});
+			}
+		}
+		// let line = new LeaderLine(document.getElementById("Enemy"), document.getElementById("Field"), { path: "grid", color: "black" });
+		// $("#Enemy, #Field").draggable({
+		// 	drag: function () {
+		// 		line.position();
+		// 	},
+		// });
 	});
 }

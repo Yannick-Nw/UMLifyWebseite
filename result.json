@@ -1,7 +1,7 @@
 {
     "classes": {
         "Enemy": {
-            "parent": "",
+            "parent": "Gameplay",
             "attributes": [
                 "-int : x",
                 "-int : y",
@@ -10,7 +10,7 @@
             "methods": []
         },
         "Field": {
-            "parent": "",
+            "parent": "Gameplay",
             "attributes": [
                 "-int : relicts",
                 "-int : width",
@@ -19,7 +19,7 @@
             "methods": []
         },
         "GameField": {
-            "parent": "Gameplay",
+            "parent": "Field",
             "attributes": [],
             "methods": []
         },
@@ -29,7 +29,7 @@
             "methods": []
         },
         "History": {
-            "parent": "",
+            "parent": "Gameplay",
             "attributes": [
                 "-int : rounds",
                 "-string : gameHistory"
@@ -37,7 +37,7 @@
             "methods": []
         },
         "Player": {
-            "parent": "A",
+            "parent": "Gameplay",
             "attributes": [
                 "-int : relicts",
                 "-int : lives",
