@@ -46,7 +46,7 @@
                             <span class="label-text">Email</span>
                             <span class="nav-dot"></span>
                         </label>
-                        <input id="input-4" type="text" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+                        <input id="input-4" type="text" placeholder="&#9679;&#9679;&#9679;DontShareYourPassword&#9679;&#9679;&#9679;" required />
                         <label for="input-4">
                             <span class="label-text">Password</span>
                             <span class="nav-dot"></span>
@@ -57,7 +57,7 @@
                             <span class="nav-dot"></span>
                         </label>
                         <button type="submit">Create Your Account</button>
-                        <p class="tip">Press Tab</p>
+                        <p class="tip">Press Enter</p>
                         <div class="signup-button">Sign Up</div>
                     </form>
             </div>

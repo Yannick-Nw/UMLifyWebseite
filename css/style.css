@@ -101,37 +101,6 @@ h4 {
   
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translate(-50%, -50%);
-  animation: arrowAnimation 1s ease-in-out;
-  z-index: 9999;
-}
-
-.checkmark {
-  color: green;
-}
-
-.cross {
-  color: red;
-}
-
-@keyframes arrowAnimation {
-  0% {
-      left: 100%;
-  }
-  30% {
-      left: 90%;
-  }
-  70% {
-      left: 90%;
-  }
-  100% {
-      left: 100%;
-  }
-}
 
 
 
@@ -161,7 +130,7 @@ input {
   border-bottom: 1px solid;
   outline: 0;
   background: transparent;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 3rem;
   line-height: 4rem;
   letter-spacing: .125rem;
@@ -183,7 +152,7 @@ button,
   line-height: 3.6rem;
   letter-spacing: .0625rem;
   box-shadow: 0 3px 5px 1px rgba(#000, 0.25);
-  text-shadow: 0 -2px 0 rgba(#000, 0.25), 0 1px 0 rgba(#fff, 0.2);
+  text-shadow: 0 -2px 0 rgba(#000, 0.25), 0 1px 0 rgba(rgb(0, 0, 0), 0.2);
 }
 
 input:focus,
@@ -193,6 +162,7 @@ button:focus {
   pointer-events: auto;
   transition: all .4s cubic-bezier(.1, .45, .1, .85) .5s;
   z-index: 10;
+  background-color: #fff;
 }
 
 input:focus ~ input,
@@ -266,7 +236,7 @@ input:focus + label .nav-dot:before {
   width: 70vw;
   padding: 3.125rem 0 1.5rem;
   text-transform: uppercase;
-  color: #fff;
+  color: rgb(0, 0, 0);
   opacity: 0;
   font-size: 1.125rem;
   font-weight: 300;
@@ -278,10 +248,11 @@ input:focus + label .nav-dot:before {
 .nav-dot {
   cursor: pointer;
   position: fixed;
-  padding: .625rem 1.25rem .625rem .625rem;
   top: 52%;
   right: 1.25rem;
+  padding: .625rem 1.25rem .625rem .625rem;
 }
+
 .nav-dot:before {
   content: '';
   display: inline-block;
@@ -289,8 +260,8 @@ input:focus + label .nav-dot:before {
   width: .375rem;
   height: .375rem;
   margin-right: .625rem;
-  position: fixed;
-  background-color: lighten(3%);
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.03);
   border: 0;
   transition: all 0.25s;
 }
@@ -300,28 +271,29 @@ input:focus + label .nav-dot:before {
   height: .625rem;
   margin-top: -.125rem;
   margin-left: -.125rem;
-  background-color: darken(5%);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 label[for="input-1"] .nav-dot {
-  margin-top: -125px;
+  top: 125px;
 }
 
 label[for="input-2"] .nav-dot {
-  margin-top: -100px;
+  top: 100px;
 }
 
 label[for="input-3"] .nav-dot {
-  margin-top: -75px;
+  top: 75px;
 }
 
 label[for="input-4"] .nav-dot {
-  margin-top: -50px;
+  top: 50px;
 }
 
 label[for="input-5"] .nav-dot {
-  margin-top: -25px;
+  top: 25px;
 }
+
 
 
 html,
