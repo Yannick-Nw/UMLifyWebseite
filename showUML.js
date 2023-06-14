@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$.ajax({
 	  url: "result.json",
 	  dataType: "json",
-	  success: function (data) {
+	  success: function(data) {
 		// Parse the data here
 		var classes = data.classes;
 		var html = '<div class="container-fluid"><div class="row">';
@@ -15,7 +15,7 @@ $(document).ready(function() {
 		  var classData = classes[className];
 		  html += '<div class="col-sm">';
 		  html += '<div class="card">';
-		  html += '<div class="card-header fw-bold">' + className + "</div>";
+		  html += '<div class="card-header fw-bold class-name">' + className + "</div>";
 		  html += '<ul class="list-group list-group-flush">';
 		  for (var i = 0; i < classData.attributes.length; i++) {
 			html += '<li class="list-group-item">' + classData.attributes[i] + "</li>";
@@ -70,7 +70,37 @@ $(document).ready(function() {
 		$(".card").draggable({
 		  containment: "#myDiv"
 		});
+  
+		// Handle click event on class name
+		$(document).on('click', '.class-name', function() {
+		  changeColor($(this).closest('.card'));
+		});
 	  }
 	});
   }
+  
+  function changeColor(classCard) {
+	var colorPalette = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+	var randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+	classCard.css('background-color', randomColor);
+  }
+  
+  // Make the color palette draggable
+  $("#color-palette .color").draggable({
+	helper: 'clone',
+	containment: 'body',
+	revert: 'invalid',
+	start: function(event, ui) {
+	  $(this).addClass('noclick');
+	}
+  });
+  
+  // Handle drop event on class cards
+  $(".card").droppable({
+	accept: ".color",
+	drop: function(event, ui) {
+	  var color = ui.helper.data('color');
+	  $(this).css('background-color', color);
+	}
+  });
   

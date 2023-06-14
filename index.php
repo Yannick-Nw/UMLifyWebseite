@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Montserrat:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mike.css">
   <script src="https://unpkg.com/gojs/release/go.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
@@ -65,12 +66,39 @@
     })
   </script>
   <div class="slider-thumb"></div>
-  <div class="figure">
-  <div class="speech-bubble">
-    Need help? click<button>here</button>
+  <div class="container">
+  <div class="horn"> </div>
+  <div class="horn right"> </div>
+  <div class="head"> </div>
+ 
+  <div class="face">
+    <div class="eye">
+      <div class="iris"> </div>
+    </div>
+    <div class="mouth"> </div>
+  </div>
+  <div class="hand"></div>
+  <div class="hand right"></div>
+  <div class="leg">
+    <div class="nail"></div>
+    <div class="nail one"></div>
+    <div class="nail two"></div>
+  </div>
+
+  <div class="leg two">
+    <div class="nail"></div>
+    <div class="nail one"></div>
+    <div class="nail two"></div>
   </div>
 </div>
 <script src="script.js"></script>
 </body>
 
 </html>
+
+
+<!--<div class="figure">
+  <div class="speech-bubble">
+    Need help? click<button>here</button>
+  </div>
+</div>

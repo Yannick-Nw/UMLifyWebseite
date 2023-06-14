@@ -1,0 +1,172 @@
+:root {
+  --green: #AED137;
+}
+
+.containerMike {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+}
+
+
+
+.horn {
+  position: absolute;
+  bottom: 218px;
+  left: 100px;
+  width: 20px;
+  height: 30px;
+  background: #D8E0CD;
+  border-radius: 30% 240% 100% 100%;
+}
+
+.horn.right {
+  border-radius: 240% 30% 100% 100%;
+  left: 165px;
+}
+
+.head {
+  position: absolute;
+  bottom: 90px;
+  width: 150px;
+  height: 150px;
+  background: #AED137;
+  border-radius: 100%;
+}
+
+.head:before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 33px;
+  background: #AED137;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%
+}
+
+.head:after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -2px;
+  background: #AED137;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%
+}
+
+.eye {
+  z-index: 2;
+  position: absolute;
+  bottom: 137px;
+  left: 100px;
+  background: #FFF;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+.iris {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 60px;
+  height: 60px;
+  background: #199E6C;
+  border-radius: 100%;
+}
+
+.iris:before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 20px solid #FFF;
+  border-bottom: 10px solid transparent;
+}
+
+.mouth {
+  position: absolute;
+  bottom: 100px;
+  left: 120px;
+  width: 30px;
+  height: 30px;
+  background: #176A46;
+  border-radius: 100%;
+}
+
+.mouth:after {
+  z-index: 0;
+  content: '';
+  position: absolute;
+  top: -10px;
+  background: #AED137;
+  width: 30px;
+  height: 30px;
+}
+
+.hand {
+  position: absolute;
+  bottom: 120px;
+  left: 50px;
+  width: 20px;
+  height: 100px;
+  background: #AED137;
+  border-radius: 10px;
+  transform: rotate(140deg);
+}
+
+.hand.right {
+  transform: rotate(40deg);
+  bottom: 120px;
+  left: 210px;
+}
+
+.leg {
+  position: absolute;
+  bottom: 40px;
+  left: 100px;
+  width: 20px;
+  height: 60px;
+  background: #AED137;
+}
+
+.leg:before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: -5px;
+  width: 30px;
+  height: 20px;
+  border-radius: 200% 200% 100% 100%;
+  background: #AED137;
+}
+
+.nail {
+  position: absolute;
+  top: 64px;
+  width: 5px;
+  height: 5px;
+  background: #FFF;
+  border-radius: 10px;
+}
+
+.nail.one {
+  left: 8px;
+}
+
+.nail.two {
+  left: 16px;
+}
+
+.leg.two {
+  left: 150px;
+}
