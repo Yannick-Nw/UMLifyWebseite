@@ -24,7 +24,7 @@
                             $password1 = $_POST['password1'];
                             $password2 = $_POST['password2'];
                             if(check_empty() == true){
-                                echo "<p style='color: red'>Bitte füllen Sie alle Felder aus!</p>";
+                                echo "<p style='color: yellow; font-size: 20px>Bitte füllen Sie alle Felder aus!</p>";
                                 $error = true;
                             }
                           }
@@ -40,10 +40,10 @@
                         <?php
                             if(isset($username)){
                                 if(UserReg($username) !== false){
-                                    echo '<p style="color: red;"> Username schon vergeben! </p>';
+                                    echo '<p style="color: yellow; font-size: 20px"> Username schon vergeben! </p>';
                                     $error = true;
                                 }else if(invalidUsername($username) !== false){
-                                    echo '<p style="color: red;">Sonderzeichen sind beim Usernamen nicht erlaubt! </p>';
+                                    echo '<p style="color: yellow; font-size: 20px">Sonderzeichen sind beim Usernamen nicht erlaubt! </p>';
                                     $error = true;
                                 }
                             }
@@ -56,15 +56,15 @@
                         <?php
                             if(isset($email)){
                                 if(EmailReg($email) !== false){
-                                    echo '<p style="color: red;"> Email schon vergeben! </p>';
+                                    echo '<p style="color: yellow; font-size: 20px"> Email schon vergeben! </p>';
                                     $error = true;
                                 }else if(invalidEmail($email) !== false){
-                                    echo '<p style="color: red;"> Bitte eine gültige E-Mail-Adresse eingeben! </p>';
+                                    echo '<p style="color: yellow; font-size: 20px"> Bitte eine gültige E-Mail-Adresse eingeben! </p>';
                                     $error = true;
                                 }
                             }
                             ?>
-                        <input id="input-3" type="password" name="password1" placeholder="&#9679;&#9679;&#9679;DontShareYourPassword&#9679;&#9679;&#9679;" required />
+                        <input id="input-3" type="password" name="password1" placeholder="&#9679;&#9679;DontShareYourPassword&#9679;&#9679;" required />
                         <label for="input-3">
                             <span class="label-text">Password</span>
                             <span class="nav-dot">Password</span>
@@ -75,7 +75,7 @@
                             <span class="nav-dot">Confirm password</span>
                         </label>
                         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $password1 != $password2) { ?>
-                                <p style="color: red;"> Bitte geben Sie zweimal dasselbe Passwort ein. </p>
+                                <p style="color: yellow; font-size: 20px"> Bitte geben Sie zweimal dasselbe Passwort ein. </p>
                             <?php
                                 $error = true;
                             }
@@ -92,13 +92,13 @@
                                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hash);
                                     mysqli_stmt_execute($stmt);
                                     ?>
-                                    <p style="color: green;"> Dein Account wurde erstellt! </p>
+                                    <p style="color: green; font-size: 20px"> Dein Account wurde erstellt! </p>
                                     <?php
                                     header('Refresh: 1; URL = login.php');
                                     mysqli_stmt_close($stmt);
                                 } else {
                                     ?>
-                                    <p style="color: red;"> Registrierung fehlgeschlagen! </p>
+                                    <p style="color: yellow; font-size: 20px"> Registrierung fehlgeschlagen! </p>
                                     <?php
                                     }
                                 }
