@@ -144,53 +144,56 @@ body {
   }
   
   .nav-dot {
-  cursor: pointer;
-  position: fixed;
-  top: 52%;
-  right: 1.25rem;
-  padding: .625rem 1.25rem .625rem .625rem;
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px;
+    padding: .625rem 1.25rem .625rem .625rem;
   }
   
   .nav-dot:before {
-  content: '';
-  display: inline-block;
-  border-radius: 50%;
-  width: .375rem;
-  height: .375rem;
-  margin-right: .625rem;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 0;
-  transition: all 0.25s;
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+    width: .6rem;
+    height: .6rem;
+    margin-right: .625rem;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    border: 0;
+    transition: all 0.25s;
   }
   
   .nav-dot:hover:before {
-  width: .625rem;
-  height: .625rem;
-  margin-top: -.125rem;
-  margin-left: -.125rem;
-  background-color: rgba(0, 0, 0, 0.95);
+    width: .625rem;
+    height: .625rem;
+    margin-top: -.125rem;
+    margin-left: -.125rem;
+    background-color: rgba(0, 0, 0, 0.95);
   }
   
   label[for="input-1"] .nav-dot {
-  top: 125px;
+    top: 45%;
+    transform: translateY(-50%);
   }
   
   label[for="input-2"] .nav-dot {
-  top: 100px;
+    top: 47%;
+    transform: translateY(-50%);
   }
   
   label[for="input-3"] .nav-dot {
-  top: 75px;
+    top: 49%;
+    transform: translateY(-50%);
   }
   
   label[for="input-4"] .nav-dot {
-  top: 50px;
+    top: 51%;
+    transform: translateY(-50%);
   }
   
-  label[for="input-5"] .nav-dot {
-  top: 25px;
-  }
+  
   
   
   
