@@ -94,6 +94,7 @@
                                     ?>
                                     <p style="color: green;"> Dein Account wurde erstellt! </p>
                                     <?php
+                                    header('Refresh: 1; URL = login.php');
                                     mysqli_stmt_close($stmt);
                                 } else {
                                     ?>
