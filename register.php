@@ -34,7 +34,7 @@
                         <input id="input-1" name="username" type="text" placeholder="john" required />
                         <label for="input-1">
                             <span class="label-text">Username</span>
-                            <span class="nav-dot"></span>
+                            <span class="nav-dot">Username</span>
                             <div class="signup-button-trigger">Sign Up</div>
                         </label>
                         <?php
@@ -51,7 +51,7 @@
                         <input id="input-2" type="email" name="email" placeholder="email@address.com" required />
                         <label for="input-2">
                             <span class="label-text">Email</span>
-                            <span class="nav-dot"></span>
+                            <span class="nav-dot">Email</span>
                         </label>
                         <?php
                             if(isset($email)){
@@ -64,15 +64,15 @@
                                 }
                             }
                             ?>
-                        <input id="input-3" type="text" name="password1" placeholder="&#9679;&#9679;&#9679;DontShareYourPassword&#9679;&#9679;&#9679;" required />
+                        <input id="input-3" type="password" name="password1" placeholder="&#9679;&#9679;&#9679;DontShareYourPassword&#9679;&#9679;&#9679;" required />
                         <label for="input-3">
                             <span class="label-text">Password</span>
-                            <span class="nav-dot"></span>
+                            <span class="nav-dot">Password</span>
                         </label>
-                        <input id="input-4" type="text" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+                        <input id="input-4" type="password" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
                         <label for="input-4">
                             <span class="label-text">Confirm Password</span>
-                            <span class="nav-dot"></span>
+                            <span class="nav-dot">Confirm password</span>
                         </label>
                         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $password1 != $password2) { ?>
                                 <p style="color: red;"> Bitte geben Sie zweimal dasselbe Passwort ein. </p>
@@ -103,7 +103,7 @@
                                 }
                             ?>
                         <button type="submit" name="submit">Create Your Account</button>
-                        <p class="tip">Press Enter</p>
+                        <p class="tip">Press Enter to submit</p>
                         <div class="signup-button">Sign Up</div>
                     </form>
                     </div>

@@ -16,7 +16,7 @@ body {
   left: 50%;
   transform: translate(-50%, -300%);
   display: block;
-  width: 70vw;
+  width: 60vw;
   opacity: 0;
   pointer-events: none;
   transition: all .5s cubic-bezier(.4, .25, .8, .3);
@@ -148,30 +148,34 @@ body {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    right: 100px;
-    padding: .625rem 1.25rem .625rem .625rem;
+    right: 50px;
+    padding: 0.625rem 0.625rem 0.625rem 0.625rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
   }
   
   .nav-dot:before {
     content: '';
     display: inline-block;
     border-radius: 50%;
-    width: .6rem;
-    height: .6rem;
-    margin-right: .625rem;
-    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-right: 0.625rem;
+    position: relative;
     background-color: rgb(0, 0, 0);
     border: 0;
     transition: all 0.25s;
   }
   
   .nav-dot:hover:before {
-    width: .625rem;
-    height: .625rem;
-    margin-top: -.125rem;
-    margin-left: -.125rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    margin-top: -0.125rem;
+    margin-left: -0.125rem;
     background-color: rgba(0, 0, 0, 0.95);
   }
+  
   
   label[for="input-1"] .nav-dot {
     top: 45%;
