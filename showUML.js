@@ -103,4 +103,3 @@ $(document).ready(function() {
 	  $(this).css('background-color', color);
 	}
   });
-  
