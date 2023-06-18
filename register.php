@@ -105,7 +105,7 @@
                             ?>
                         <button type="submit" name="submit">Create Your Account</button>
                         <p class="tip">Press Enter to submit</p>
-                        <div class="signup-button">Sign Up</div>
+                        <div class="signup-button">Click here to start</div>
                     </form>
                     </div>
         </div>
