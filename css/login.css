@@ -188,13 +188,14 @@ body {
     transform: translateY(-50%);
   }
   
-  label[for="input-3"] .nav-dot {
-    top: 49%;
+  
+  label[for="input-1"] .nav-dot {
+    top: 45%;
     transform: translateY(-50%);
   }
   
-  label[for="input-4"] .nav-dot {
-    top: 51%;
+  label[for="input-2"] .nav-dot {
+    top: 47%;
     transform: translateY(-50%);
   }
   

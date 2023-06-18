@@ -3,10 +3,8 @@ body {
      background: linear-gradient(90deg,#e52e71,#ff8a00);
   }
 
-
 :root {
     --background: #040a0c;
-    
   }
   
   input,
@@ -68,13 +66,16 @@ body {
   transform: translate(-50%, 500%);
   transition: all .5s ease-in;
   }
+
   input:focus ~ label .label-text {
   transform: translate(-50%, 300%);
   transition: all .5s ease-in;
   }
+
   input:focus ~ .tip {
   opacity: 1;
   }
+
   input:focus ~ .signup-button,
   button:focus ~ .signup-button {
   opacity: 0;
@@ -85,6 +86,7 @@ body {
   transform: translate(-50%, -100%);
   transition: all .3s cubic-bezier(.1, .45, .1, .85) .4s;
   }
+
   input:focus + label .nav-dot:before {
   background: darken(5%);
   box-shadow: 0 0 0 .15rem 0 0 .05rem .26rem;
@@ -176,7 +178,6 @@ body {
     background-color: rgba(0, 0, 0, 0.95);
   }
   
-  
   label[for="input-1"] .nav-dot {
     top: 45%;
     transform: translateY(-50%);
@@ -197,10 +198,6 @@ body {
     transform: translateY(-50%);
   }
   
-  
-  
-  
-  
   html,
   body {
   width: 100%;
@@ -214,7 +211,6 @@ body {
   height: 100%;
   overflow: hidden;
   }
-  
   
   .card {
   transition: background-color 0.3s ease;
