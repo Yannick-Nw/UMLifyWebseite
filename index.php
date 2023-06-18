@@ -67,6 +67,9 @@
   </script>
   <div class="slider-thumb"></div>
   <div class="container">
+  <div class="speech-bubble">
+  Need help? Visit our <a href="faq.php">FAQ site</a>!
+</div>
   <div class="horn"> </div>
   <div class="horn right"> </div>
   <div class="head"> </div>
@@ -96,9 +99,3 @@
 
 </html>
 
-
-<!--<div class="figure">
-  <div class="speech-bubble">
-    Need help? click<button>here</button>
-  </div>
-</div>

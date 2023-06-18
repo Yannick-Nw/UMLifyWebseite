@@ -7,13 +7,27 @@
   margin: auto;
   top: 0;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   right: 0;
-  width: 200px;
-  height: 200px;
+  width: 1000px;
+  height: 1000px;
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 
-
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .horn {
   position: absolute;
@@ -48,7 +62,7 @@
   background: #AED137;
   width: 120px;
   height: 120px;
-  border-radius: 100%
+  border-radius: 100%;
 }
 
 .head:after {
@@ -59,7 +73,7 @@
   background: #AED137;
   width: 120px;
   height: 120px;
-  border-radius: 100%
+  border-radius: 100%;
 }
 
 .eye {
@@ -170,4 +184,51 @@
 
 .leg.two {
   left: 150px;
+}
+
+
+.speech-bubble {
+  display: none;
+  position: absolute;
+  bottom: 240px;
+  left: 170px;
+  padding: 5px;
+  border-radius: .4em;
+  background-color: rgb(255, 254, 254);
+  width: 165px;
+  height: 60px;
+  animation: fadeOut 4s linear forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 15%;
+	width: 0;
+	height: 0;
+	border: 25px solid transparent;
+	border-top-color: #ffffff;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -14.5px;
+	margin-bottom: -25px;
+}
+
+.container:hover .speech-bubble {
+  display: inline;
+  flex: 1 0 auto;
+  cursor: pointer;
 }
