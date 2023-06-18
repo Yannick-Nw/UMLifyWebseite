@@ -42,17 +42,6 @@ body {
   color: white;
 }
 
-.figure {
-  width: 100px;
-  height: 100px;
-  background-color: transparent;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background-image: url('pics/cat.png');
-  background-size: cover;
-  border-radius: 50%;
-}
 
 .speech-bubble {
   display: none;
