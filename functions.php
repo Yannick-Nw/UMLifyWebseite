@@ -1,6 +1,6 @@
 <?php
 function check_empty(){
-    if (empty($_POST["username"]) || empty($_POST["updateEmail"]) || empty($_POST["password1"]) || empty($_POST["password2"])) {
+    if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["password1"]) || empty($_POST["password2"])) {
         return true;
     }
     return false;

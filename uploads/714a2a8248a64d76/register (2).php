@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Registrierung</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="animation.js"></script>
 </head>
 <body>
@@ -24,58 +24,58 @@
                             $password1 = $_POST['password1'];
                             $password2 = $_POST['password2'];
                             if(check_empty() == true){
-                                echo "<p style='color: yellow; font-size: 20px>Bitte füllen Sie alle Felder aus!</p>";
+                                echo "<p style='color: red'>Bitte füllen Sie alle Felder aus!</p>";
                                 $error = true;
                             }
                           }
                         ?>
                     <form method="POST" action="register.php">
                         
-                        <input id="input-1" name="username" type="text" placeholder="john" required />
-                        <label for="input-1">
+                        <input id="input-2" name="username" type="text" placeholder="john" required />
+                        <label for="input-2">
                             <span class="label-text">Username</span>
-                            <span class="nav-dot">Username</span>
+                            <span class="nav-dot"></span>
                             <div class="signup-button-trigger">Sign Up</div>
                         </label>
                         <?php
                             if(isset($username)){
                                 if(UserReg($username) !== false){
-                                    echo '<p style="color: yellow; font-size: 20px"> Username schon vergeben! </p>';
+                                    echo '<p style="color: red;"> Username schon vergeben! </p>';
                                     $error = true;
                                 }else if(invalidUsername($username) !== false){
-                                    echo '<p style="color: yellow; font-size: 20px">Sonderzeichen sind beim Usernamen nicht erlaubt! </p>';
+                                    echo '<p style="color: red;">Sonderzeichen sind beim Usernamen nicht erlaubt! </p>';
                                     $error = true;
                                 }
                             }
                             ?>
-                        <input id="input-2" type="email" name="email" placeholder="email@address.com" required />
-                        <label for="input-2">
+                        <input id="input-3" type="email" name="email" placeholder="email@address.com" required />
+                        <label for="input-3">
                             <span class="label-text">Email</span>
-                            <span class="nav-dot">Email</span>
+                            <span class="nav-dot"></span>
                         </label>
                         <?php
                             if(isset($email)){
                                 if(EmailReg($email) !== false){
-                                    echo '<p style="color: yellow; font-size: 20px"> Email schon vergeben! </p>';
+                                    echo '<p style="color: red;"> Email schon vergeben! </p>';
                                     $error = true;
                                 }else if(invalidEmail($email) !== false){
-                                    echo '<p style="color: yellow; font-size: 20px"> Bitte eine gültige E-Mail-Adresse eingeben! </p>';
+                                    echo '<p style="color: red;"> Bitte eine gültige E-Mail-Adresse eingeben! </p>';
                                     $error = true;
                                 }
                             }
                             ?>
-                        <input id="input-3" type="password" name="password1" placeholder="&#9679;&#9679;DontShareYourPassword&#9679;&#9679;" required />
-                        <label for="input-3">
-                            <span class="label-text">Password</span>
-                            <span class="nav-dot">Password</span>
-                        </label>
-                        <input id="input-4" type="password" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+                        <input id="input-4" type="text" name="password1" placeholder="&#9679;&#9679;&#9679;DontShareYourPassword&#9679;&#9679;&#9679;" required />
                         <label for="input-4">
+                            <span class="label-text">Password</span>
+                            <span class="nav-dot"></span>
+                        </label>
+                        <input id="input-5" type="text" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+                        <label for="input-5">
                             <span class="label-text">Confirm Password</span>
-                            <span class="nav-dot">Confirm password</span>
+                            <span class="nav-dot"></span>
                         </label>
                         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $password1 != $password2) { ?>
-                                <p style="color: yellow; font-size: 20px"> Bitte geben Sie zweimal dasselbe Passwort ein. </p>
+                                <p style="color: red;"> Bitte geben Sie zweimal dasselbe Passwort ein. </p>
                             <?php
                                 $error = true;
                             }
@@ -92,20 +92,19 @@
                                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hash);
                                     mysqli_stmt_execute($stmt);
                                     ?>
-                                    <p style="color: green; font-size: 20px"> Dein Account wurde erstellt! </p>
+                                    <p style="color: green;"> Dein Account wurde erstellt! </p>
                                     <?php
-                                    header('Refresh: 1; URL = login.php');
                                     mysqli_stmt_close($stmt);
                                 } else {
                                     ?>
-                                    <p style="color: yellow; font-size: 20px"> Registrierung fehlgeschlagen! </p>
+                                    <p style="color: red;"> Registrierung fehlgeschlagen! </p>
                                     <?php
                                     }
                                 }
                             ?>
                         <button type="submit" name="submit">Create Your Account</button>
-                        <p class="tip">Press Enter to submit</p>
-                        <div class="signup-button">Click here to start</div>
+                        <p class="tip">Press Enter</p>
+                        <div class="signup-button">Sign Up</div>
                     </form>
                     </div>
         </div>

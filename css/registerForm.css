@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-form,
+  .right-form {
+    width: 45%;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  button {
+    padding: 10px;
+  }
+  
+  #input-display {
+    border: 1px solid #ccc;
+    height: 200px;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  

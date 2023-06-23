@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registrierung</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/register.css">
-    <script src="animation.js"></script>
+    <link rel="stylesheet" href="register2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="register2.js"></script>
 </head>
 <body>
 <?php
@@ -14,9 +15,10 @@
     ?>
     <div class="header">
         <div class="row justify-content-center align-items-center">
-            <div class="col-md-6 my-5">
-                    <h1 class="title text-center">Registrierung</h4>
-                        <?php
+            <div class="registration-container">
+                <div class="form-container">
+                    <h1 class="title text-center">Registration</h1>
+                    <?php
                         if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
                             $error = false;
                             $username = $_POST['username'];
@@ -30,13 +32,10 @@
                           }
                         ?>
                     <form method="POST" action="register.php">
-                        
-                        <input id="input-1" name="username" type="text" placeholder="john" required />
-                        <label for="input-1">
-                            <span class="label-text">Username</span>
-                            <span class="nav-dot">Username</span>
-                            <div class="signup-button-trigger">Sign Up</div>
-                        </label>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input id="username" name="username" type="text" class="form-control" placeholder="john" required />
+                        </div>
                         <?php
                             if(isset($username)){
                                 if(UserReg($username) !== false){
@@ -48,11 +47,10 @@
                                 }
                             }
                             ?>
-                        <input id="input-2" type="email" name="email" placeholder="email@address.com" required />
-                        <label for="input-2">
-                            <span class="label-text">Email</span>
-                            <span class="nav-dot">Email</span>
-                        </label>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" class="form-control" placeholder="email@address.com" required />
+                        </div>
                         <?php
                             if(isset($email)){
                                 if(EmailReg($email) !== false){
@@ -64,16 +62,14 @@
                                 }
                             }
                             ?>
-                        <input id="input-3" type="password" name="password1" placeholder="&#9679;&#9679;DontShareYourPassword&#9679;&#9679;" required />
-                        <label for="input-3">
-                            <span class="label-text">Password</span>
-                            <span class="nav-dot">Password</span>
-                        </label>
-                        <input id="input-4" type="password" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
-                        <label for="input-4">
-                            <span class="label-text">Confirm Password</span>
-                            <span class="nav-dot">Confirm password</span>
-                        </label>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input id="password" type="password" name="password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input id="confirmPassword" type="password" name="confirmPassword" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+                        </div>
                         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $password1 != $password2) { ?>
                                 <p style="color: yellow; font-size: 20px"> Bitte geben Sie zweimal dasselbe Passwort ein. </p>
                             <?php
@@ -103,11 +99,18 @@
                                     }
                                 }
                             ?>
-                        <button type="submit" name="submit">Create Your Account</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Create Your Account</button>
                         <p class="tip">Press Enter to submit</p>
-                        <div class="signup-button">Click here to start</div>
                     </form>
-                    </div>
+                </div>
+                
+            </div>
+            <div class="confirmation-container">
+                    <h2 class="text-center">Confirmation</h2>
+                    <p class="text-center">Username: <span id="usernameConfirmation"></span></p>
+                    <p class="text-center">Email: <span id="emailConfirmation"></span></p>
+                    <p class="text-center">Password: <span id="passwordConfirmation"></span></p>
+                </div>
         </div>
     </div>
 </body>
