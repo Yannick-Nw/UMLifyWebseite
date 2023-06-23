@@ -28,6 +28,9 @@ $isAdmin = (@$_SESSION["username"] == 'admin');
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+                <a class="nav-link" href="faq.php">FAQ</a>
+            </li>
         <?php 
           if ($logged_in){
             if($isAdmin){

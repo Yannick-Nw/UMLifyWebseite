@@ -68,7 +68,7 @@
   <div class="slider-thumb"></div>
   <div class="container">
   <div class="speech-bubble">
-  Need help? Visit our <a href="faq.php">FAQ site</a>!
+  Need help? Visit our FAQ site</a>!
 </div>
   <div class="horn"> </div>
   <div class="horn right"> </div>
