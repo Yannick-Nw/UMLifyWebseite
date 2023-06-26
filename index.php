@@ -23,13 +23,13 @@
         <h1 class="text-center mb-4">Header-Dateien hochladen</h1>
         <div class="text-center"><h6>Free, Easy, No Limits</h6></div><br>
         <form id="upload-form" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="file">Header-Datei auswählen:</label>
-    <div class="custom-file">
-      <input type="file" name="file[]" id="fileInput" multiple class="custom-file-input">
-      <label class="custom-file-label" for="file">Choose file</label>
+          <div class="form-group">
+          <label for="file">Header-Datei auswählen:</label>
+          <div class="custom-file">
+            <input type="file" name="file[]" id="fileInput" multiple class="custom-file-input">
+            <label class="custom-file-label" for="file">Choose file</label>
+          </div>
     </div>
-  </div>
   <button type="submit" id="uploadFilesButton" class="btn btn-secondary btn-block btn-black" disabled>Hochladen</button>
 </form>
       </div>
@@ -67,35 +67,14 @@
   </script>
   <div class="slider-thumb"></div>
   <div class="container">
-  <div class="speech-bubble">
-  Need help? Visit our FAQ site</a>!
-</div>
-  <div class="horn"> </div>
-  <div class="horn right"> </div>
-  <div class="head"> </div>
- 
-  <div class="face">
-    <div class="eye">
-      <div class="iris"> </div>
+    <div class="speech-bubble">
+      Need help? Visit our FAQ site!
     </div>
-    <div class="mouth"> </div>
+  <div class="image-container">
+    <img src="pics/mike.png" alt="Mike" class="mike-picture">
   </div>
-  <div class="hand"></div>
-  <div class="hand right"></div>
-  <div class="leg">
-    <div class="nail"></div>
-    <div class="nail one"></div>
-    <div class="nail two"></div>
   </div>
-
-  <div class="leg two">
-    <div class="nail"></div>
-    <div class="nail one"></div>
-    <div class="nail two"></div>
-  </div>
-</div>
 <script src="script.js"></script>
 </body>
 
 </html>
-
