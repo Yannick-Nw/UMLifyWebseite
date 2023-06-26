@@ -68,7 +68,7 @@
   <div class="slider-thumb"></div>
   <div class="container">
     <div class="speech-bubble">
-      Need help? Visit our FAQ site!
+      Need help? Visit our <a href="faq.php">FAQ site!
     </div>
   <div class="image-container">
     <img src="pics/mike.png" alt="Mike" class="mike-picture">
