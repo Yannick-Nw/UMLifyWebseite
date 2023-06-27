@@ -106,8 +106,7 @@
                         </div>
                     </form>
             </div>
-            <div id="sign-up-uml" class="col-md-4 bg-white mb-3 border border-5 border-primary rounded-4">
-
+            <div id="sign-up-uml" class="col-md-4 p-4 bg-white border border-5 border-primary rounded-4">
             </div>
         </div>
     </div>

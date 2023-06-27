@@ -1,7 +1,11 @@
 $(document).ready(function () {
-  pick("input-1");
+	$("input").each(function() {
+    var id = $(this).attr("id");
+    var labelText = $(this).prev("label").text();
+    pick(id, labelText);
+});
 
-  
+
 	// // Select the form and input fields
 	// var form = $("form");
 	// var inputFields = form.find("input");
@@ -17,33 +21,53 @@ $(document).ready(function () {
 	// 		nextInputField.animate({ opacity: 1 }, 800);
 	// 	});
 	// });
-
 });
 
-function pick(name) {
-  name = "#" + name;
-  $(name).on('input', function() {
-    var inputValue = $(this).val();
-    name = name + "-card";
-    if (inputValue) {
-      if ($(name).length) {
-        
-      } else {
-        diagramm(inputValue, name);
-      }
-    }
-  });
+function pick(name, labelText) {
+	name = "#" + name;
+	$(name).on("input", function () {
+		var inputValue = $(this).val();
+		if (!name.includes("-card")) {
+			name = name + "-card";
+		}
+		if (!name.includes("#")) {
+			name = "#" + name;
+		}
+		if (inputValue) {
+			// console.log(name);
+			if ($(name).length) {
+				$(name + "-text").text(inputValue);
+			} else {
+				if (name.startsWith("#")) {
+					name = name.slice(1);
+				}
+				diagramm(inputValue, name, labelText);
+        lines();
+			}
+		}
+	});
 }
 
-function diagramm(inputValue, name) {
-  console.log(inputValue);
-	var card = $("<div>").addClass("card col-md-4").attr('name', name);
+function diagramm(inputValue, name, labelText) {
+	// console.log(inputValue);
+	var div = $("<div>").addClass("row mb-5").attr("id", name + "-uml");;
+  var card = $("<div>").addClass("card col-md-4").attr("id", name);
 	var cardBody = $("<div>").addClass("card-body");
-	var cardTitle = $("<h5>").addClass("card-title").text("Username");
-	var cardText = $("<p>").addClass("card-text").text(inputValue);
+	var cardTitle = $("<h5>").addClass("card-title").text(labelText);
+	var cardText = $("<p>")
+		.addClass("card-text")
+		.text(inputValue)
+		.attr("id", name + "-text");
 
 	cardBody.append(cardTitle).append(cardText);
 	card.append(cardBody);
+  div.append(card);
+	$("#sign-up-uml").append(div);
+}
 
-	$("#sign-up-uml").append(card);
+function lines() {
+  var cards = $(".card");
+  for (var i = 0; i < cards.length - 1; i++) {
+    new LeaderLine(cards[i], cards[i + 1]);
+  }
 }
