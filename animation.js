@@ -68,8 +68,8 @@ function diagramm(inputValue, name, labelText) {
 
 	cardBody.append(cardTitle).append(cardText);
 	switch (labelText) {
-		case "Email":
-			div.addClass("justify-content-end");
+		case "Username":
+			div.addClass("justify-content-center");
 			break;
 		case "Password":
 			break;
@@ -99,7 +99,14 @@ function drawlines(lines) {
 	var cards = $(".card");
 
 	for (var i = 0; i < cards.length - 1; i++) {
-		var line = new LeaderLine(cards[i], cards[i + 1], { color: "black" });
+    // console.log(cards[i]);
+    if (i == 1) {
+      var line = new LeaderLine(cards[i], cards[i + 1], {color: "black" });
+      
+    } else {
+      var line = new LeaderLine(cards[i], cards[i + 1], {path: "grid", color: "black" });
+      
+    }
 		// lines.push(line);
 	}
 	$("svg").appendTo($("#sign-up-uml"));
