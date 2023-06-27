@@ -99,14 +99,12 @@ function drawlines(lines) {
 	var cards = $(".card");
 
 	for (var i = 0; i < cards.length - 1; i++) {
-    // console.log(cards[i]);
-    if (i == 1) {
-      var line = new LeaderLine(cards[i], cards[i + 1], {color: "black" });
-      
-    } else {
-      var line = new LeaderLine(cards[i], cards[i + 1], {path: "grid", color: "black" });
-      
-    }
+		// console.log(cards[i]);
+		if (i == 1) {
+			var line = new LeaderLine(cards[i], cards[i + 1], { color: "black" });
+		} else {
+			var line = new LeaderLine(cards[i], cards[i + 1], { path: "grid", color: "black" });
+		}
 		// lines.push(line);
 	}
 	$("svg").appendTo($("#sign-up-uml"));
@@ -114,18 +112,21 @@ function drawlines(lines) {
 
 function downloadUML() {
 	$("#pic").click(function () {
-		// htmlToImage.toJpeg($(".leader-line")[0], { quality: 0.95 }).then(function (dataUrl) {
+		canvasconverter();
+		// htmlToImage.toJpeg($("#sign-up-uml")[0], { quality: 0.95 }).then(function (dataUrl) {
 		// 	var link = document.createElement("a");
 		// 	link.download = "my-image-name.jpeg";
 		// 	link.href = dataUrl;
 		// 	link.click();
 		// });
-		canvasconverter();
 		// var img = ReImg.fromSvg(document.querySelector("svg")).toImg();
 		// console.log(img);
 		// $("#sign-up-uml").append(img);
 		html2canvas($("#sign-up-uml")[0]).then(function (canvas) {
-			document.body.appendChild(canvas);
+			var link = document.createElement("a");
+			link.download = "image.png";
+			link.href = canvas.toDataURL();
+			link.click();
 		});
 	});
 }
