@@ -79,6 +79,7 @@ function deleteFiles() {
 
 function downloadUML() {
 	$("#pic").click(function () {
+		canvasconverter();
 		htmlToImage.toJpeg($("#uml")[0], { quality: 0.95 }).then(function (dataUrl) {
 			var link = document.createElement("a");
 			link.download = "my-image-name.jpeg";
@@ -122,5 +123,40 @@ function drawlines(classes) {
 		// 		line.position();
 		// 	},
 		// });
+	});
+}
+
+function canvasconverter() {
+	$(".leader-line").each(function () {
+		var svg = this;
+		console.log(svg);
+		var xml = new XMLSerializer().serializeToString(svg);
+		console.log(xml);
+		var svg64 = btoa(xml);
+		console.log(svg64);
+		var b64Start = "data:image/svg+xml;base64,";
+		console.log(b64Start);
+		var image64 = b64Start + svg64;
+		var img = new Image();
+		console.log(img);
+		img.src = image64;
+		// document.body.appendChild(img);
+		var oldSvg = svg;
+		var newImg = img; // Replace this with the URL of the image you want to use
+
+		// Copy relevant styles from oldSvg to newImg
+		$(newImg).css({
+			left: $(oldSvg).css("left"),
+			top: $(oldSvg).css("top"),
+			width: $(oldSvg).css("width"),
+			height: $(oldSvg).css("height"),
+			position: "absolute",
+		});
+
+		$(oldSvg).replaceWith(newImg);
+		// html2canvas($("#sign-up-uml")[0]).then(function (canvas) {
+		//   document.body.appendChild(canvas);
+		// });
+		// $(newImg).replaceWith(newImg);
 	});
 }
