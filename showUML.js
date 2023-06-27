@@ -86,7 +86,7 @@ function downloadUML() {
 		// 	link.href = dataUrl;
 		// 	link.click();
 		// });
-		html2canvas($("#sign-up-uml")[0]).then(function (canvas) {
+		html2canvas($("#uml")[0]).then(function (canvas) {
 			var link = document.createElement("a");
 			link.download = "image.png";
 			link.href = canvas.toDataURL();
