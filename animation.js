@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  var lines = [];
+	var lines = [];
+	downloadUML();
 	$("input").each(function () {
 		var id = $(this).attr("id");
 		var labelText = $(this).prev("label").text();
@@ -27,6 +28,9 @@ function pick(name, labelText, lines) {
 	name = "#" + name;
 	$(name).on("input", function () {
 		var inputValue = $(this).val();
+		if (labelText == "Password" || labelText == "Confirm Password") {
+			var inputValue = "*".repeat(inputValue.length);
+		}
 		if (!name.includes("-card")) {
 			name = name + "-card";
 		}
@@ -38,6 +42,7 @@ function pick(name, labelText, lines) {
 			if ($(name).length) {
 				$(name + "-text").text(inputValue);
 			} else {
+				$("#sign-up-uml").removeClass("d-none");
 				if (name.startsWith("#")) {
 					name = name.slice(1);
 				}
@@ -62,22 +67,93 @@ function diagramm(inputValue, name, labelText) {
 		.attr("id", name + "-text");
 
 	cardBody.append(cardTitle).append(cardText);
+	switch (labelText) {
+		case "Email":
+			div.addClass("justify-content-end");
+			break;
+		case "Password":
+			break;
+		case "Confirm Password":
+			div.addClass("justify-content-end");
+			break;
+		default:
+			break;
+	}
 	card.append(cardBody);
 	div.append(card);
 	$("#sign-up-uml").append(div);
 }
 
 function drawlines(lines) {
-  console.log(lines);
-	lines.forEach(function (line) {
-		line.remove();
-	});
-	lines = [];
+	console.log(lines);
+	// lines.forEach(function (line) {
+	// 	line.remove();
+	// });
+	// lines = [];
+	// Select the SVG element
+	var svg = $("svg");
+
+	// Remove the SVG element
+	svg.remove();
 
 	var cards = $(".card");
 
 	for (var i = 0; i < cards.length - 1; i++) {
-		var line = new LeaderLine(cards[i], cards[i + 1]);
-		lines.push(line);
+		var line = new LeaderLine(cards[i], cards[i + 1], { color: "black" });
+		// lines.push(line);
 	}
+	$("svg").appendTo($("#sign-up-uml"));
+}
+
+function downloadUML() {
+	$("#pic").click(function () {
+		// htmlToImage.toJpeg($(".leader-line")[0], { quality: 0.95 }).then(function (dataUrl) {
+		// 	var link = document.createElement("a");
+		// 	link.download = "my-image-name.jpeg";
+		// 	link.href = dataUrl;
+		// 	link.click();
+		// });
+		canvasconverter();
+		// var img = ReImg.fromSvg(document.querySelector("svg")).toImg();
+		// console.log(img);
+		// $("#sign-up-uml").append(img);
+		html2canvas($("#sign-up-uml")[0]).then(function (canvas) {
+			document.body.appendChild(canvas);
+		});
+	});
+}
+
+function canvasconverter() {
+	$(".leader-line").each(function () {
+		var svg = this;
+		console.log(svg);
+		var xml = new XMLSerializer().serializeToString(svg);
+		console.log(xml);
+		var svg64 = btoa(xml);
+		console.log(svg64);
+		var b64Start = "data:image/svg+xml;base64,";
+		console.log(b64Start);
+		var image64 = b64Start + svg64;
+		var img = new Image();
+		console.log(img);
+		img.src = image64;
+		// document.body.appendChild(img);
+		var oldSvg = svg;
+		var newImg = img; // Replace this with the URL of the image you want to use
+
+		// Copy relevant styles from oldSvg to newImg
+		$(newImg).css({
+			left: $(oldSvg).css("left"),
+			top: $(oldSvg).css("top"),
+			width: $(oldSvg).css("width"),
+			height: $(oldSvg).css("height"),
+			position: "absolute",
+		});
+
+		$(oldSvg).replaceWith(newImg);
+		// html2canvas($("#sign-up-uml")[0]).then(function (canvas) {
+		//   document.body.appendChild(canvas);
+		// });
+		// $(newImg).replaceWith(newImg);
+	});
 }
