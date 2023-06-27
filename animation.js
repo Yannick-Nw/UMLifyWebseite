@@ -1,10 +1,10 @@
 $(document).ready(function () {
-	$("input").each(function() {
-    var id = $(this).attr("id");
-    var labelText = $(this).prev("label").text();
-    pick(id, labelText);
-});
-
+  var lines = [];
+	$("input").each(function () {
+		var id = $(this).attr("id");
+		var labelText = $(this).prev("label").text();
+		pick(id, labelText, lines);
+	});
 
 	// // Select the form and input fields
 	// var form = $("form");
@@ -23,7 +23,7 @@ $(document).ready(function () {
 	// });
 });
 
-function pick(name, labelText) {
+function pick(name, labelText, lines) {
 	name = "#" + name;
 	$(name).on("input", function () {
 		var inputValue = $(this).val();
@@ -42,7 +42,7 @@ function pick(name, labelText) {
 					name = name.slice(1);
 				}
 				diagramm(inputValue, name, labelText);
-        lines();
+				drawlines(lines);
 			}
 		}
 	});
@@ -50,8 +50,10 @@ function pick(name, labelText) {
 
 function diagramm(inputValue, name, labelText) {
 	// console.log(inputValue);
-	var div = $("<div>").addClass("row mb-5").attr("id", name + "-uml");;
-  var card = $("<div>").addClass("card col-md-4").attr("id", name);
+	var div = $("<div>")
+		.addClass("row mb-5")
+		.attr("id", name + "-uml");
+	var card = $("<div>").addClass("card col-md-4").attr("id", name);
 	var cardBody = $("<div>").addClass("card-body");
 	var cardTitle = $("<h5>").addClass("card-title").text(labelText);
 	var cardText = $("<p>")
@@ -61,13 +63,21 @@ function diagramm(inputValue, name, labelText) {
 
 	cardBody.append(cardTitle).append(cardText);
 	card.append(cardBody);
-  div.append(card);
+	div.append(card);
 	$("#sign-up-uml").append(div);
 }
 
-function lines() {
-  var cards = $(".card");
-  for (var i = 0; i < cards.length - 1; i++) {
-    new LeaderLine(cards[i], cards[i + 1]);
-  }
+function drawlines(lines) {
+  console.log(lines);
+	lines.forEach(function (line) {
+		line.remove();
+	});
+	lines = [];
+
+	var cards = $(".card");
+
+	for (var i = 0; i < cards.length - 1; i++) {
+		var line = new LeaderLine(cards[i], cards[i + 1]);
+		lines.push(line);
+	}
 }

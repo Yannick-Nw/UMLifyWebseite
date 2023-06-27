@@ -62,7 +62,7 @@ function drawUML() {
 			$(".card").draggable({
 				containment: "#myDiv",
 			});
-			lines(classes);
+			drawlines(classes);
 		},
 	});
 	deleteFiles();
@@ -91,7 +91,7 @@ function downloadUML() {
 	});
 }
 
-function lines(classes) {
+function drawlines(classes) {
 	/*
 	var startCard = $("#card1");
 	var endCard = $("#card2");
