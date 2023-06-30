@@ -135,67 +135,64 @@ function canvasconverter() {
 	var oldSvgs = [];
 	var newImgs = [];
 
-	$(".leader-line").each(function () {
-		const canvas = document.createElement("canvas");
-		canvas.width = this.width.baseVal.value;
-		canvas.height = this.height.baseVal.value;
-		let svgString = new XMLSerializer().serializeToString(this);
-		const marker = this.querySelector("marker");
-		if (marker) {
-			svgString = svgString.replace("</svg>", marker.outerHTML + "</svg>");
-		}
-		canvg(canvas, svgString);
-		const img = new Image();
-		img.src = canvas.toDataURL("image/png");
-		img.style.left = this.style.left;
-		img.style.top = this.style.top;
-		img.style.width = this.style.width;
-		img.style.height = this.style.height;
-		img.style.position = "absolute";
-		$(this).replaceWith(img);
+	// $(".leader-line").each(function () {
+	// 	const canvas = document.createElement("canvas");
+	// 	canvas.width = this.width.baseVal.value;
+	// 	canvas.height = this.height.baseVal.value;
+	// 	let svgString = new XMLSerializer().serializeToString(this);
+	// 	const marker = this.querySelector("marker");
+	// 	if (marker) {
+	// 		svgString = svgString.replace("</svg>", marker.outerHTML + "</svg>");
+	// 	}
+	// 	canvg(canvas, svgString);
+	// 	const img = new Image();
+	// 	img.src = canvas.toDataURL("image/png");
+	// 	img.style.left = this.style.left;
+	// 	img.style.top = this.style.top;
+	// 	img.style.width = this.style.width;
+	// 	img.style.height = this.style.height;
+	// 	img.style.position = "absolute";
+	// 	$(this).replaceWith(img);
 
+	// 	oldSvgs.push(oldSvg);
+	// 	newImgs.push(newImg);
+	// });
+	$(".leader-line").each(function () {
+		// var svg = $(this);
+		var svg = this;
+
+		// console.log(svg);
+		//var marker = svg.find("marker");
+
+		var xml = new XMLSerializer().serializeToString(svg);
+		console.log(xml);
+		//xml = xml.replace("</svg>", marker[0].outerHTML + "</svg>");
+
+		var svg64 = btoa(xml);
+		// console.log(svg64);
+		var b64Start = "data:image/svg+xml;base64,";
+		// console.log(b64Start);
+		var image64 = b64Start + svg64;
+		var img = new Image();
+		// console.log(img);
+		img.src = image64;
+		// document.body.appendChild(img);
+		var oldSvg = svg;
+		var newImg = img; // Replace this with the URL of the image you want to use
+
+		// Copy relevant styles from oldSvg to newImg
+		$(newImg).css({
+			left: $(oldSvg).css("left"),
+			top: $(oldSvg).css("top"),
+			width: $(oldSvg).css("width"),
+			height: $(oldSvg).css("height"),
+			position: "absolute",
+		});
+
+		$(oldSvg).replaceWith(newImg);
 		oldSvgs.push(oldSvg);
 		newImgs.push(newImg);
 	});
-	// $(".leader-line").each(function () {
-	// 	// var svg = $(this);
-	// 	var svg = $(this).closest("svg");
-	// 	if (svg.length > 0) {
-	// 		var marker = svg.find("marker");
-
-	// 		// console.log(svg);
-	// 		var marker = svg.find("marker");
-
-	// 		var xml = new XMLSerializer().serializeToString(svg);
-	// 		// console.log(xml);
-	// 		xml = xml.replace("</svg>", marker[0].outerHTML + "</svg>");
-
-	// 		var svg64 = btoa(xml);
-	// 		// console.log(svg64);
-	// 		var b64Start = "data:image/svg+xml;base64,";
-	// 		// console.log(b64Start);
-	// 		var image64 = b64Start + svg64;
-	// 		var img = new Image();
-	// 		// console.log(img);
-	// 		img.src = image64;
-	// 		// document.body.appendChild(img);
-	// 		var oldSvg = svg;
-	// 		var newImg = img; // Replace this with the URL of the image you want to use
-
-	// 		// Copy relevant styles from oldSvg to newImg
-	// 		$(newImg).css({
-	// 			left: $(oldSvg).css("left"),
-	// 			top: $(oldSvg).css("top"),
-	// 			width: $(oldSvg).css("width"),
-	// 			height: $(oldSvg).css("height"),
-	// 			position: "absolute",
-	// 		});
-
-	// 		$(oldSvg).replaceWith(newImg);
-	// 		oldSvgs.push(oldSvg);
-	// 		newImgs.push(newImg);
-	// 	}
-	// });
 
 	html2canvas($("#sign-up-uml")[0]).then(function (canvas) {
 		document.body.appendChild(canvas);

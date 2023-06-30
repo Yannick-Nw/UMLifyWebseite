@@ -113,10 +113,10 @@
             </div>
             <div id="sign-up-uml" class="col-md-4 p-4 my-5 bg-white border border-5 border-primary rounded-4 d-none">
             </div>
-            <div class="row justify-content-center">
+            <!-- <div class="row justify-content-center">
                 <button id="pic" type="button" class="btn btn-primary col-2">Download</button>
 
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
