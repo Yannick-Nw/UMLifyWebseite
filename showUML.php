@@ -56,7 +56,8 @@
 
     
     ?>
-		<div class="container">
+    <div class="outer-container">
+		<div class="container-fluid">
 			<div class="row m-3">
 				<h2 class="col-10">UML</h2>
                 <button id="pic" type="button" class="btn btn-primary col-2">Download</button>
@@ -98,6 +99,14 @@
             ?>
             <!-- <button id="pic" type="button" class="btn btn-primary">Download</button> -->
 		</div>
+        </div>
+        <style>
+    .outer-container {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+</style>
+
         
         <script src="showUML.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

@@ -2,8 +2,16 @@ $(document).ready(function() {
     drawUML();
 });
 
-function drawUML() {
-    console.log("ZEICHNEN");
+function getSessionID(){
+	$.ajax({
+		url: "getSessionID.php",
+		success: function (data) {
+			drawUML(data);
+		}
+	})
+}
+
+function drawUML(sessionID) {
 	$.ajax({
 		url: "uploads/"+sessionID+"/result.json",
 		dataType: "json",
@@ -12,7 +20,7 @@ function drawUML() {
 			var html = '<div class="container"><div class="row">';
 			for (var className in classes) {
 				var classData = classes[className];
-				html += '<div class="col-2 m-4">';
+				html += '<div class="col-5 m-4">';
 				html += '<div id="' + className + '"class="card">';
 				html += '<div class="card-header fw-bold">' + className + "</div>";
 				if (classData.attributes.length > 0) {
@@ -29,23 +37,27 @@ function drawUML() {
 						} else if (attributeType === "-") {
 							cssClass = "private-attribute";
 						}
-						html += '<li class="list-group-item ' + cssClass + '">' + attribute + "</li>";
+						html += '<li class="list-group-item ' + cssClass + '">' + htmlEntities(attribute) + "</li>";
 					}
 					html += "</ul>";
 				}
 				if (classData.methods.length > 0) {
 					html += '<div class="card-header">Methods</div>';
 					html += '<ul class="list-group list-group-flush">';
-					for (var i = 0; i < protectedMethods.length; i++) {
-						html += '<li class="list-group-item">' + protectedMethods[i].substring(1).trim() + "</li>";
-					}
-					html += "</ul>";
-				}
-				if (privateMethods.length > 0) {
-					html += '<div class="card-header">Private</div>';
-					html += '<ul class="list-group list-group-flush">';
-					for (var i = 0; i < privateMethods.length; i++) {
-						html += '<li class="list-group-item">' + privateMethods[i].substring(1).trim() + "</li>";
+					for (var i = 0; i < classData.methods.length; i++) {
+						var method = classData.methods[i];
+						var methodName = method.name;
+						var parameters = method.parameters;
+						var methodType = methodName.charAt(0);
+						var cssClass = "";
+						if (methodType === "+") {
+							cssClass = "public-method";
+						} else if (methodType === "#") {
+							cssClass = "protected-method";
+						} else if (methodType === "-") {
+							cssClass = "private-method";
+						}
+						html += '<li class="list-group-item ' + cssClass + '">' + methodName + "(" + parameters + ")" + "</li>";
 					}
 					html += "</ul>";
 				}
