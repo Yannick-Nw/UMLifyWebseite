@@ -94,17 +94,17 @@
                                     mysqli_stmt_prepare($stmt, $sql);
                                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hash);
                                     mysqli_stmt_execute($stmt);
-                            ?>
+                                    ?>
                                     <p style="color: green; font-size: 20px"> Dein Account wurde erstellt! </p>
-                                <?php
+                                    <?php
                                     header('Refresh: 1; URL = login.php');
                                     mysqli_stmt_close($stmt);
                                 } else {
-                                ?>
+                                    ?>
                                     <p style="color: yellow; font-size: 20px"> Registrierung fehlgeschlagen! </p>
-                            <?php
+                                    <?php
+                                    }
                                 }
-                            }
                             ?>
                             <button type="submit" class="btn btn-primary" name="submit">Create Your Account</button>
                         </div>

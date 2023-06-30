@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php include 'top_navbar.php'; ?>
+  <?php include 'top_navbar.php'; ?>
   <div class="container my-5">
     <h1 class="text-center">Frequently Asked Questions</h1>
     <div class="accordion" id="faqAccordion">
@@ -42,7 +42,8 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
           <div class="card-body">
-            To upload header files, click on the "Header-Datei auswählen" button, select one or more .h files, and then click
+            To upload header files, click on the "Header-Datei auswählen" button, select one or more .h files, and then
+            click
             the "Hochladen" button to upload them to the server.
           </div>
         </div>
@@ -58,12 +59,12 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
           <div class="card-body">
-            No, there are no limits on the number of files you can upload. You can upload as many header files as you need.
+            No, there are no limits on the number of files you can upload. You can upload as many header files as you
+            need.
           </div>
         </div>
       </div>
-    </div>
-    <div class="card">
+      <div class="card">
         <div class="card-header" id="headingFour">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
@@ -74,12 +75,13 @@
         </div>
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
           <div class="card-body">
-            UMLify supports various types of UML diagrams, including class diagrams, sequence diagrams, activity diagrams,
+            UMLify supports various types of UML diagrams, including class diagrams, sequence diagrams, activity
+            diagrams,
             and more. You can explore the different diagram options once you upload your header files.
           </div>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-header" id="headingFive">
           <h2 class="mb-0">
@@ -91,12 +93,13 @@
         </div>
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
           <div class="card-body">
-            Yes, once the UML diagrams are generated, you will have the option to download them as image files (e.g., PNG, SVG)
+            Yes, once the UML diagrams are generated, you will have the option to download them as image files (e.g.,
+            PNG, SVG)
             or save them in a project for future reference.
           </div>
         </div>
       </div>
-      
+
       <div class="card">
         <div class="card-header" id="headingSix">
           <h2 class="mb-0">
@@ -108,14 +111,16 @@
         </div>
         <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
           <div class="card-body">
-            Yes, UMLify is completely free to use. There are no hidden charges or subscription fees. Enjoy generating UML
+            Yes, UMLify is completely free to use. There are no hidden charges or subscription fees. Enjoy generating
+            UML
             diagrams effortlessly.
           </div>
         </div>
       </div>
-      
+    </div>
+
   </div>
-  
+
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

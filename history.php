@@ -16,11 +16,14 @@
 
 </head>
 <body>
-  <?php include 'top_navbar.php'; ?>
+<div class=img-heading>
+  <?php include 'top_navbar.php';
+    include 'is_user.php';
+  ?>
   <h1 class="text-white">Ihre gespeicherten UML Diagramme</h1>
     </div>
-    <div class="table table-responsive">
-        <table class="table table-sm">
+    <div class="container">
+    <table class="table table-sm">
             <thead class="thead-dark">
                 <tr>
                     <th>Titel</th>
@@ -30,9 +33,10 @@
             <tbody class="table-striped table-hover">
                 <?php
                 require("dbaccess.php");
-                $sql = "SELECT * FROM diagrams";
+                $sql = "SELECT * FROM diagrams WHERE USERNAME = ?";
                 $stmt = mysqli_stmt_init($mysqli);
                 mysqli_stmt_prepare($stmt, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $_SESSION["username"]);
                 mysqli_stmt_execute($stmt);
                 $results = mysqli_stmt_get_result($stmt);
                 while ($row = mysqli_fetch_assoc($results)) {

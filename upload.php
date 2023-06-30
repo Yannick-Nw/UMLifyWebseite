@@ -1,24 +1,31 @@
 <?php
-$upload_dir = "";
-if (isset($_SESSION['username'])) {
-  // Wenn ein Benutzer eingeloggt ist, erstelle einen Ordner basierend auf dem Benutzernamen
-  $upload_dir = "uploads/" . $_SESSION['username'] . "/";
-} else {
-  // Wenn kein Benutzer eingeloggt ist, generiere einen zufälligen Namen für den Ordner
-  $random_name = bin2hex(random_bytes(8));
-  $upload_dir = "uploads/" . $random_name . "/";
-}
+session_start();
+include 'deleteFilesFromServer.php';
+$upload_dir = "uploads/" . $_SESSION['id'] . "/";
 
 // Erstellen des Upload-Ordners, wenn er nicht bereits existiert
 if (!is_dir($upload_dir)) {
   mkdir($upload_dir, 0777, true);
 }
+$total_size = 0;
 
-// Loop durch alle hochgeladenen Dateien
-for($i=0; $i<count($_FILES['file']['name']); $i++) {
+for($i = 0; $i < count($_FILES['file']['name']); $i++) {
   $target_file = $upload_dir . basename($_FILES["file"]["name"][$i]);
+
+  // Überprüfe die Dateigröße der aktuellen Datei
+  $file_size = $_FILES["file"]["size"][$i];
+  $total_size += $file_size; // Addiere die Dateigröße zur Gesamtgröße
+
+  if ($total_size > 1 * 1024 * 1024) {
+    echo "error";
+    break;
+  }
+
   move_uploaded_file($_FILES["file"]["tmp_name"][$i], $target_file);
   echo $target_file . "<br>";
 }
-echo $upload_dir;
+
+if ($total_size <= 1 * 1024 * 1024) {
+  echo $upload_dir;
+}
 ?>

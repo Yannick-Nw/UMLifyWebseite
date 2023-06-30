@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  //drawUML(); //kann man entkommentieren für Tests
   $('#upload-form').submit(function(e) {
     e.preventDefault();
     var formData = new FormData();
@@ -19,18 +18,44 @@ $(document).ready(function() {
         processData: false,
         success: function(response) {
           console.log(response);
-          getUML();
+          if (response == "error") {
+            var errorMessage = $("<p>Der Upload darf nicht größer als 1MB sein!</p>").css({
+              "color": "red",
+              "font-weight": "bold",
+              "text-align": "center",
+              "font-size": "30px",
+              "text-shadow": "1px 1px 2px rgb(0, 0, 0)",
+              "margin-top": "2%"
+              });
+            $('#error-message').html(errorMessage);
+          }else{
+            getUML(response);
+          }
         }
       });
     });
   });
   
-  function getUML() {
+  function getUML(uploadDir) {
     $.ajax({
       url: 'callpythonscript.php',
+      type: 'POST',
+      data: { upload_dir: uploadDir },
       success: function(response) {
-        window.location.href = 'showUML.php';
-      }
+        if (response !== "error") {
+          window.location.href = 'showUML.php';
+        } else {
+          var errorMessage = $("<p>Es wurde kein .h File hochgeladen!</p>").css({
+            "color": "red",
+            "font-weight": "bold",
+            "text-align": "center",
+            "font-size": "30px",
+            "text-shadow": "1px 1px 2px rgb(0, 0, 0)",
+            "margin-top": "2%"
+            });
+          $('#error-message').html(errorMessage);
+        }
+      },
     });
   }
 
